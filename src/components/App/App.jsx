@@ -33,14 +33,12 @@ export default function App() {
       name: "item_name",
       label: "Item name",
       value: "",
-      format: "CODE128",
     },
     {
       id: "supplier_name",
       name: "supplier_name",
       label: "Supplier",
       value: "",
-      format: "CODE128",
     },
   ];
 
