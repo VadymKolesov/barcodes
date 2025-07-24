@@ -7,8 +7,16 @@ export default function BarcodeList({ data }) {
       {data.map((item) =>
         item.value ? (
           <li key={item.id} className={css.item}>
-            <p>{item.label}</p>
-            <Barcode value={item.value} width={1} height={50} fontSize={14} />
+            <p className={css.label}>{item.label}</p>
+            <Barcode
+              value={item.value}
+              width={1.5}
+              height={15}
+              fontSize={12}
+              margin={3}
+              format={item.format}
+              background="#ffffff"
+            />
           </li>
         ) : null
       )}

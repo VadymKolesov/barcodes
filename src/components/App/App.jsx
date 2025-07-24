@@ -7,30 +7,40 @@ import { useReactToPrint } from "react-to-print";
 
 export default function App() {
   const initialData = [
-    { id: "order_id", name: "order_id", label: "Order ID", value: "" },
+    {
+      id: "order_id",
+      name: "order_id",
+      label: "Order ID",
+      value: "",
+      format: "CODE128",
+    },
     {
       id: "article_id",
       name: "article_id",
       label: "Article number",
       value: "",
+      format: "CODE128",
     },
     {
       id: "rd_id",
       name: "rd_id",
       label: "RD",
       value: "",
+      format: "CODE128",
     },
     {
       id: "item_name",
       name: "item_name",
       label: "Item name",
       value: "",
+      format: "CODE128",
     },
     {
       id: "supplier_name",
       name: "supplier_name",
       label: "Supplier",
       value: "",
+      format: "CODE128",
     },
   ];
 
