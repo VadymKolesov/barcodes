@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import Input from "../Input/Input";
 import css from "./App.module.css";
 import BarcodeList from "../BarcodeList/BarcodeList";
 import InputList from "../InputList/InputList";
@@ -53,7 +52,6 @@ export default function App() {
       item.id === id ? { ...item, value: newValue } : item
     );
     setData(updatedData);
-    console.log(data);
   };
 
   const handlePaste = async (id) => {
@@ -63,10 +61,16 @@ export default function App() {
         item.id === id ? { ...item, value: newValue } : item
       );
       setData(updatedData);
-      console.log(newValue);
     } catch (err) {
       console.error("Clipboard read failed", err);
     }
+  };
+
+  const handleRemove = (id) => {
+    const updatedData = data.map((item) =>
+      item.id === id ? { ...item, value: "" } : item
+    );
+    setData(updatedData);
   };
 
   const handleReset = () => {
@@ -86,15 +90,22 @@ export default function App() {
           data={data}
           onChange={handleChangeInput}
           onPaste={handlePaste}
+          onRemove={handleRemove}
         />
         {isValue && (
           <button className={css.resetBtn} onClick={handleReset}>
-            Reset
+            Reset all
           </button>
         )}
       </section>
-      <section className={css.barcodes} ref={barcodeRef}>
-        <BarcodeList data={data} />
+      <section className={css.barcodes}>
+        {isValue && (
+          <div className={css.barcodesWrapper}>
+            <div ref={barcodeRef}>
+              <BarcodeList data={data} />
+            </div>
+          </div>
+        )}
         {isValue && (
           <button className={css.printBtn} onClick={handlePrint}>
             Print

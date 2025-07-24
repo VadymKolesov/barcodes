@@ -1,7 +1,7 @@
 import Input from "../Input/Input";
 import css from "./InputList.module.css";
 
-export default function InputList({ data, onChange, onPaste }) {
+export default function InputList({ data, onChange, onPaste, onRemove }) {
   return (
     <ul className={css.list}>
       {data.map((item) => (
@@ -13,6 +13,7 @@ export default function InputList({ data, onChange, onPaste }) {
             value={item.value}
             onChange={onChange}
             onPaste={onPaste}
+            onRemove={onRemove}
           />
         </li>
       ))}
