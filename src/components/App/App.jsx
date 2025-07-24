@@ -26,7 +26,6 @@ export default function App() {
       name: "rd_id",
       label: "RD",
       value: "",
-      format: "CODE128",
     },
     {
       id: "item_name",

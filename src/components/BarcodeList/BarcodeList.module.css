@@ -12,6 +12,12 @@
   font-weight: 600;
 }
 
+.flexItem {
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+}
+
 .item .value {
   font-size: 10x;
   font-weight: 400;

@@ -1,13 +1,17 @@
 import Barcode from "react-barcode";
 import css from "./BarcodeList.module.css";
+import clsx from "clsx";
 
 export default function BarcodeList({ data }) {
   return (
     <ul className={css.list}>
       {data.map((item) =>
         item.value ? (
-          <li key={item.id} className={css.item}>
-            <p className={css.label}>{item.label}</p>
+          <li
+            key={item.id}
+            className={clsx(css.item, !item.format && css.flexItem)}
+          >
+            <p className={css.label}>{item.label}:</p>
             {item.format ? (
               <Barcode
                 value={item.value}
